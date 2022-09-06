@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
         importGame(dir);
     });
     connect(ui->openWbfsIso, &QPushButton::clicked, this, [this](bool) {
-        auto wbfsIso = QFileDialog::getOpenFileName(this, "Open WBFS/ISO", QString(), "Fortune Street disc files (*.wbfs *.iso *.ciso)");
+        auto wbfsIso = QFileDialog::getOpenFileName(this, "Open WBFS/ISO", QString(), "Wii disc files (*.wbfs *.iso *.ciso)");
         if (wbfsIso.isEmpty()) {
             return;
         }
@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
         exportGame(dir, true);
     });
     connect(ui->exportWbfsIso, &QPushButton::clicked, this, [this](bool) {
-        auto wbfsIso = QFileDialog::getSaveFileName(this, "Export WBFS/ISO", QString(), "Fortune Street disc files (*.wbfs *.iso *.ciso)");
+        auto wbfsIso = QFileDialog::getSaveFileName(this, "Export WBFS/ISO", QString(), "Wii disc files (*.wbfs *.iso *.ciso)");
         if (wbfsIso.isEmpty()) {
             return;
         }

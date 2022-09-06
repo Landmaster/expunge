@@ -43,7 +43,12 @@ if (APPLE)
         COMMAND ${CMAKE_COMMAND} -E rename wit-* expunge.app/Contents/MacOS/wit
     )
 elseif(WIN32)
-    # TODO add shit here
+    file(DOWNLOAD https://wit.wiimm.de/download/wit-v3.05a-r8638-cygwin64.zip ${CMAKE_CURRENT_BINARY_DIR}/wit.zip)
+    add_custom_command(TARGET expunge POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E tar xf wit.zip
+        COMMAND ${CMAKE_COMMAND} -E rm -rf wit
+        COMMAND ${CMAKE_COMMAND} -E rename wit-* wit
+    )
 endif()
 
 
