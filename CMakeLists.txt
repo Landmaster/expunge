@@ -29,6 +29,10 @@ if (APPLE)
     qt_add_executable(expunge
         ${PROJECT_SOURCES} ${app_icon_macos}
     )
+elseif(WIN32)
+    qt_add_executable(expunge
+        ${PROJECT_SOURCES} expunge.rc
+    )
 else()
     qt_add_executable(expunge
         ${PROJECT_SOURCES}
