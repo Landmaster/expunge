@@ -38,16 +38,16 @@ endif()
 if (APPLE)
     file(DOWNLOAD https://wit.wiimm.de/download/wit-v3.05a-r8638-mac.tar.gz ${CMAKE_CURRENT_BINARY_DIR}/wit.tar.gz)
     add_custom_command(TARGET expunge POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E tar xzf wit.tar.gz
-        COMMAND ${CMAKE_COMMAND} -E rm -rf expunge.app/Contents/MacOS/wit
-        COMMAND ${CMAKE_COMMAND} -E rename wit-* expunge.app/Contents/MacOS/wit
+        COMMAND ${CMAKE_COMMAND} -E tar xzf ${CMAKE_CURRENT_BINARY_DIR}/wit.tar.gz
+        COMMAND ${CMAKE_COMMAND} -E rm -rf ${CMAKE_CURRENT_BINARY_DIR}/expunge.app/Contents/MacOS/wit
+        COMMAND ${CMAKE_COMMAND} -E rename ${CMAKE_CURRENT_BINARY_DIR}/wit-v3.05a-r8638-mac ${CMAKE_CURRENT_BINARY_DIR}/expunge.app/Contents/MacOS/wit
     )
 elseif(WIN32)
     file(DOWNLOAD https://wit.wiimm.de/download/wit-v3.05a-r8638-cygwin64.zip ${CMAKE_CURRENT_BINARY_DIR}/wit.zip)
     add_custom_command(TARGET expunge POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E tar xf wit.zip
-        COMMAND ${CMAKE_COMMAND} -E rm -rf wit
-        COMMAND ${CMAKE_COMMAND} -E rename wit-* wit
+        COMMAND ${CMAKE_COMMAND} -E tar xf ${CMAKE_CURRENT_BINARY_DIR}/wit.zip
+        COMMAND ${CMAKE_COMMAND} -E rm -rf ${CMAKE_CURRENT_BINARY_DIR}/wit
+        COMMAND ${CMAKE_COMMAND} -E rename ${CMAKE_CURRENT_BINARY_DIR}/wit-v3.05a-r8638-cygwin64 ${CMAKE_CURRENT_BINARY_DIR}/wit
     )
 endif()
 
